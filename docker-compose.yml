@@ -4,7 +4,10 @@ services:
     image: wp
     volumes:
       - wordpress:/var/www/html/
-  
+    ports:
+      - 80:80
+    networks: 
+      - wp    
 
   mysql:
     image: mysql
@@ -13,7 +16,12 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: test
       MYSQL_DATABASE: wp
-
+    ports:
+      - 3306:3306
+    networks: 
+      - wp    
 volumes:
   wordpress:
-  sql:  
+  sql: 
+networks:
+  wp:  
