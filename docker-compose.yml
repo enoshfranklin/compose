@@ -1,0 +1,19 @@
+version: '3'
+services:
+  wp:
+    image: wp
+    volumes:
+      - wordpress:/var/www/html/
+  
+
+  mysql:
+    image: mysql
+    volumes:
+      - sql:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: test
+      MYSQL_DATABASE: wp
+
+volumes:
+  wordpress:
+  sql:  
